@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 9189c5e66688c304783dd65d5ae8e5d2
+guid: 3908721c303e15447899991c914b668d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Black
+    21300000: Moon
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,8 +35,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: .5, y: .5}
+  alignment: 9
+  spritePivot: {x: .537420809, y: .484782219}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
