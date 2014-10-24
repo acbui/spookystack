@@ -3,13 +3,21 @@ using System.Collections;
 
 public class Hat : MonoBehaviour {
 
+	// SET IN INSPECTOR
+	public Player aPlayer; 
 	public Sprite[] aSprites;
+
+	// hat attributes
 	public string aNamePrefix; 
 	public int aID; 
+
+	// lerp stuff
 	public float aVShift;
 	public float aSpeed; 
 	public Vector3 aShiftPos; 
-	public bool aShiftHat; 
+
+	// DON'T TOUCH THIS IN INSPECTOR
+	private bool aShiftHat; 
 
 	/* --------------------------------------------------------------------------------------------------------------------
 	 * START:
@@ -18,7 +26,7 @@ public class Hat : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void Start () {
 		setSprite(); 
-		gameObject.name = aNamePrefix + aID;
+		gameObject.name = aNamePrefix + aPlayer.aHats;
 		aShiftHat = false; 
 	}
 
