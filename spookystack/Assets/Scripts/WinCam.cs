@@ -45,4 +45,25 @@ public class WinCam : MonoBehaviour {
 	void FixedUpdate () {
 		transform.position = Vector3.Lerp (transform.position, new Vector3 (transform.position.x, winh.position.y, transform.position.z), aSpeed * Time.deltaTime);
 	}
+
+	void Update()
+	{
+		if (transform.position.y >= winh.position.y - 0.05f) {
+			if (winID == 1)
+			{
+				Application.LoadLevel ("p1win");
+			}
+			else if (winID == 2)
+			{
+				Application.LoadLevel ("p2win");
+			}
+			else 
+			{
+				if (Input.anyKeyDown)
+				{
+					Application.LoadLevel ("Title_Screen");
+				}
+			}
+		}
+	}
 }

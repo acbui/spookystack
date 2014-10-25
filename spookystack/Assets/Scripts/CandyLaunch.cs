@@ -9,6 +9,7 @@ public class CandyLaunch : MonoBehaviour {
 	public float aAccel;
 
 	public Sprite[] aSprites; 
+	public AudioClip clip;
 
 	/* --------------------------------------------------------------------------------------------------------------------
 	 * START: 
@@ -34,6 +35,7 @@ public class CandyLaunch : MonoBehaviour {
 
 		if (Mathf.Abs(transform.position.x - aTarget.x) <= 0.05f)
 		{
+			audio.PlayOneShot(clip);
 			Destroy (gameObject);
 		}
 	}
