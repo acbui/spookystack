@@ -54,7 +54,7 @@ public class Hat : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void setSprite()
 	{
-		gameObject.GetComponent<SpriteRenderer>().sprite = aSprites[Random.Range (0, aSprites.Length)]; 
+	//	gameObject.GetComponent<SpriteRenderer>().sprite = aSprites[Random.Range (0, aSprites.Length)]; 
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
