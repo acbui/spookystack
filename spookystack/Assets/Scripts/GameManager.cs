@@ -3,13 +3,31 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
+	static public GameManager ins;
+
+	public float aTimer; 
+
+	// KEEP TRACK OF 
+	public int p1House;
+	public int p2House; 
+
+	void Awake () {
+		//Setup instance
+		DontDestroyOnLoad(this);
+		ins = this;
+	}
+
+	/* --------------------------------------------------------------------------------------------------------------------
+	 * 
+	 * -------------------------------------------------------------------------------------------------------------------- */
 	void Start () {
-	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	/* --------------------------------------------------------------------------------------------------------------------
+	 * 
+	 * -------------------------------------------------------------------------------------------------------------------- */
+	void Update () 
+	{
 	
 	}
 }

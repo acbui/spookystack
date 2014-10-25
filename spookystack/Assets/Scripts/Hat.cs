@@ -82,7 +82,7 @@ public class Hat : MonoBehaviour {
 	 * - call changeName on all hats of current player 
 	 * - destroy this hat 
 	 * -------------------------------------------------------------------------------------------------------------------- */
-	void OnTriggerEnter (Collider col)
+	void OnTriggerEnter2D (Collider2D col)
 	{
 		if (aID == 1)
 		{
