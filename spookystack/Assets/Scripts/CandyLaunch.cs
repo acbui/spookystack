@@ -4,7 +4,7 @@ using System.Collections;
 public class CandyLaunch : MonoBehaviour {
 
 	public GameObject aTarget; 
-	public string aTargetNamePrefix; 
+	public string aTargetName; 
 	public float aSpeed;
 	public float aAccel; 
 
@@ -13,7 +13,7 @@ public class CandyLaunch : MonoBehaviour {
 	 * find the target: opponent's bottom hat
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void Start () {
-		aTarget = GameObject.Find (aTargetNamePrefix + " 1"); 
+		aTarget = GameObject.Find (aTargetName); 
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------

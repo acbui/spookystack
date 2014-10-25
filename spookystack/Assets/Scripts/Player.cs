@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 	public float aHatInc; 
 	public float aDelay;
 
+	public Vector3 aCandyPos; 
+
 	public int minCandies;
 	public int maxCandies; 
 
