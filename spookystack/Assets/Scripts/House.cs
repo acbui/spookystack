@@ -62,11 +62,14 @@ public class House : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	public void shiftHouse()
 	{
-		aID--;
-		gameObject.name = aNamePrefix + aID; 
-		aShiftPos = new Vector3 (transform.position.x - aHShift, transform.position.y - aVShift, transform.position.z); 
-		aShiftScale = new Vector3 (aScales[aPlayer.aHouses], aScales[aPlayer.aHouses], transform.localScale.z); 
-		aShiftHouse = true; 
+		if (aPlayer.aChangingHouses)
+		{
+			aID--;
+			gameObject.name = aNamePrefix + aID; 
+			aShiftPos = new Vector3 (transform.position.x - aHShift, transform.position.y - aVShift, transform.position.z); 
+			aShiftScale = new Vector3 (aScales[aPlayer.aHouses], aScales[aPlayer.aHouses], transform.localScale.z); 
+			aShiftHouse = true; 
+		}
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
