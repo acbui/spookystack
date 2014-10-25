@@ -25,6 +25,8 @@ public class Player : MonoBehaviour {
 	public int minCandies;
 	public int maxCandies; 
 
+	public AudioClip[] clips; 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -43,12 +45,6 @@ public class Player : MonoBehaviour {
 			{
 				collectCandy();
 				makeDealer();
-
-				if (aCandies%10 == 0)
-				{
-					makeHat();
-					aHats++;
-				}
 			}
 
 			if (Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W))
@@ -78,6 +74,7 @@ public class Player : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void throwCandy()
 	{
+		audio.PlayOneShot (clips [2]);
 		aCandies--;
 		Instantiate (aCandyPrefab, aCandyPos, Quaternion.identity); 
 	}
@@ -93,16 +90,9 @@ public class Player : MonoBehaviour {
 		aHouses++;
 	}
 
-	/* --------------------------------------------------------------------------------------------------------------------
-	 * 
-	 * -------------------------------------------------------------------------------------------------------------------- */
-	void tradeCandy()
-	{
-
-	}
-
 	void changeHouse()
 	{
+		audio.PlayOneShot(clips[0]);
 		aChangingHouses = true; 
 		House[] hs = GameObject.FindObjectsOfType(typeof(House)) as House[];
 		foreach (House h in hs)
@@ -135,6 +125,7 @@ public class Player : MonoBehaviour {
 	{
 		if (Random.Range (1,5) == 1)
 		{
+			audio.PlayOneShot(clips[1]); 
 			GameObject dealer = Instantiate (aDealerPrefab) as GameObject; 
 			HatDealer dealScript = dealer.GetComponent<HatDealer>();
 			dealScript.aPlayer = this; 
