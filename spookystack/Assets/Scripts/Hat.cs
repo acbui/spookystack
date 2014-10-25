@@ -28,6 +28,7 @@ public class Hat : MonoBehaviour {
 		setSprite(); 
 		gameObject.name = aNamePrefix + aPlayer.aHats;
 		aShiftHat = false; 
+		transform.localScale = new Vector3 (0.3f, 0.3f, 1); 
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
@@ -54,7 +55,7 @@ public class Hat : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void setSprite()
 	{
-	//	gameObject.GetComponent<SpriteRenderer>().sprite = aSprites[Random.Range (0, aSprites.Length)]; 
+		gameObject.GetComponent<SpriteRenderer>().sprite = aSprites[Random.Range (0, aSprites.Length)]; 
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
@@ -88,7 +89,7 @@ public class Hat : MonoBehaviour {
 		{
 			Destroy (col.gameObject); 
 			aID--; 
-			SendMessage ("changeName");  
+			BroadcastMessage ("changeName");  
 			Destroy (this.gameObject); 
 		}
 	}

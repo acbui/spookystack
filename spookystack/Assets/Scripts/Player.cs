@@ -6,11 +6,15 @@ public class Player : MonoBehaviour {
 	public int aHats;
 	public int aCandies;
 	public int aHouses; 
+	public int aID; 
 
 	public GameObject aHousePrefab; 
+	public GameObject aHatPrefab; 
 	public bool aChangingHouses; 
 
 	public Vector3 aHousePos; 
+	public Vector3 aHatPos; 
+	public float aHatInc; 
 	public float aDelay;
 
 	// Use this for initialization
@@ -25,10 +29,33 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (aID == 1)
 		{
-			changeHouse(); 
-			aHouses++;
+			if (Input.GetMouseButtonDown(0))
+			{
+				changeHouse(); 
+				aHouses++;
+			}
+
+			if (Input.GetMouseButtonDown(1))
+			{
+				aHats++;
+				makeHat ();
+			}
+		}
+		else 
+		{
+			if (Input.GetKeyDown(KeyCode.LeftArrow))
+			{
+				changeHouse(); 
+				aHouses++;
+			}
+			
+			if (Input.GetKeyDown(KeyCode.RightArrow))
+			{
+				aHats++;
+				makeHat ();
+			}
 		}
 	}
 
@@ -75,5 +102,13 @@ public class Player : MonoBehaviour {
 		houseScript.setColour(); 
 		houseScript.gameObject.name = houseScript.aNamePrefix + 3;
 		houseScript.aShiftHouse = false; 
+	}
+
+	public void makeHat()
+	{
+		GameObject newHat = Instantiate (aHatPrefab, new Vector3 (aHatPos.x, aHatPos.y + (aHatInc*(aHats-1)), aHatPos.z), Quaternion.identity) as GameObject;  
+		Hat hatScript = newHat.GetComponent<Hat>();
+		hatScript.aPlayer = this; 
+		hatScript.aID = aHats; 
 	}
 }
