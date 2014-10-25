@@ -27,44 +27,66 @@ public class Player : MonoBehaviour {
 
 	public AudioClip[] clips; 
 
+	public float currentFrame; 
+	public float coolDown; 
+
+	public float currentTime;
+	public float coolTime; 
+
 	// Use this for initialization
 	void Start () 
 	{
 		aHats = 0;
 		aCandies = 0; 
 		aHouses = 2; 
+		currentFrame = 10;
+		currentTime = coolTime; 
 		aChangingHouses = false; 
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		currentFrame++; 
+		currentTime = Time.time; 
 		if (aID == 1)
 		{
-			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown (KeyCode.A))
-			{
-				collectCandy();
-				makeDealer();
+			if (currentFrame >= coolDown){
+				if (Input.GetMouseButtonDown(0) || Input.GetKeyDown (KeyCode.A))
+				{
+					collectCandy();
+					makeDealer();
+					currentFrame = 0;
+				} 
 			}
 
-			if (Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W))
-			{
-				if (aCandies > 0)
-					throwCandy();
+			if (currentTime >= coolTime){
+				if (Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W))
+				{
+					if (aCandies > 0)
+						throwCandy();
+					coolTime += Time.time;
+				}
 			}
 		}
 		else if (aID == 2)
 		{
-			if (Input.GetKeyDown(KeyCode.LeftArrow))
-			{
-				collectCandy();
-				makeDealer();
+			if (currentFrame >= coolDown){
+				if (Input.GetKeyDown(KeyCode.LeftArrow))
+				{
+					collectCandy();
+					makeDealer();
+					currentFrame = 0;
+				}
 			}
 
-			if (Input.GetKeyDown(KeyCode.UpArrow))
-			{
-				if (aCandies > 0)
-					throwCandy();
+			if (currentTime >= coolTime){
+				if (Input.GetKeyDown(KeyCode.UpArrow))
+				{
+					if (aCandies > 0)
+						throwCandy();
+					coolTime += Time.time;
+				}
 			}
 		}
 	}
