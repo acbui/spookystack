@@ -19,7 +19,7 @@ public class HatDealer : MonoBehaviour {
 	void Update () {
 		if (aID == 1)
 		{
-			if ((Input.GetKeyDown (KeyCode.D) || Input.GetMouseButtonDown(1)) && !(Input.GetKeyDown (KeyCode.A) && Input.GetKeyDown (KeyCode.W)))
+			if (Input.GetKeyDown (KeyCode.D))
 			{
 				if (aPlayer.aCandies >= aHatCost)
 				{
@@ -29,7 +29,7 @@ public class HatDealer : MonoBehaviour {
 					Destroy (gameObject); 
 				}
 			}
-			if ((Input.GetKeyDown (KeyCode.A) || Input.GetMouseButtonDown (0)) || !(Input.GetKeyDown (KeyCode.D) && Input.GetKeyDown (KeyCode.W)))
+			if (Input.GetKeyDown (KeyCode.A))
 			{
 				Destroy (gameObject); 
 			}
@@ -37,7 +37,7 @@ public class HatDealer : MonoBehaviour {
 
 		if (aID == 2)
 		{
-			if (Input.GetKeyDown (KeyCode.RightArrow) && !Input.GetKeyDown (KeyCode.LeftArrow) && !Input.GetKeyDown (KeyCode.UpArrow))
+			if (Input.GetKeyDown (KeyCode.RightArrow))
 			{
 				if (aPlayer.aCandies >= aHatCost)
 				{
@@ -47,7 +47,7 @@ public class HatDealer : MonoBehaviour {
 					Destroy (gameObject); 
 				}
 			}
-			if (Input.GetKeyDown (KeyCode.LeftArrow) && !Input.GetKeyDown (KeyCode.RightArrow) && !Input.GetKeyDown (KeyCode.UpArrow))
+			if (Input.GetKeyDown (KeyCode.LeftArrow))
 			{
 				Destroy (gameObject); 
 			}
