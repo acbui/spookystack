@@ -7,10 +7,6 @@ public class GameManager : MonoBehaviour {
 
 	public float aTimer; 
 
-	// KEEP TRACK OF 
-	public int p1House;
-	public int p2House; 
-
 	void Awake () {
 		//Setup instance
 		DontDestroyOnLoad(this);
