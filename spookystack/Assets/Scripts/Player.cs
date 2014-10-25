@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	public bool aChangingHouses; 
 
 	public Vector3 aHousePos; 
+	public float aDelay;
 
 	// Use this for initialization
 	void Start () 
@@ -62,7 +63,7 @@ public class Player : MonoBehaviour {
 		{
 			h.shiftHouse(); 
 		}
-		makeHouse();
+		Invoke ("makeHouse", aDelay); 
 	}
 
 	public void makeHouse()

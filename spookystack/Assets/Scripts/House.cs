@@ -6,11 +6,12 @@ public class House : MonoBehaviour {
 	public Player aPlayer; 
 	public Color[] aColors; 
 	public Vector3[] aPositions; 
+	public Vector3[] aScales; 
+	public SpriteRenderer aRender; 
 
 	public string aNamePrefix; 
 	public int aID; 
-
-	public float[] aScales; 
+	
 	public float aVShift;
 	public float aHShift; 
 	public float aSpeed; 
@@ -20,6 +21,7 @@ public class House : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		aRender = gameObject.GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -34,19 +36,9 @@ public class House : MonoBehaviour {
 	{
 		if (aShiftHouse)
 		{
-			transform.position = Vector3.Lerp (transform.position, aShiftPos, Time.deltaTime * aSpeed);
-			transform.localScale = Vector3.Lerp (transform.localScale, aShiftScale, Time.deltaTime * aSpeed); 
-			
-			if (transform.position.y <= aShiftPos.y + 0.05f)
-			{
-				if (aID == 0)
-				{
-					Destroy (this.gameObject); 
-				}
-				transform.position = aShiftPos;
-				transform.localScale = aShiftScale; 
-				aShiftHouse = false; 
-			}
+			transform.position = Vector3.Slerp (transform.position, aShiftPos, Time.deltaTime * aSpeed);
+			transform.localScale = Vector3.Slerp (transform.localScale, aShiftScale, Time.deltaTime * aSpeed); 
+
 		}
 	}
 
@@ -63,18 +55,8 @@ public class House : MonoBehaviour {
 		{
 			aID--;
 			gameObject.name = aNamePrefix + aID; 
-			if (aID == 0)
-			{
-
-				aShiftPos = aPositions[aID-1]; 
-				aShiftScale = new Vector3 (aScales[aID]*2, aScales[aID]*2, transform.localScale.z); 
-				 
-			}
-			else 
-			{
-				aShiftPos = new Vector3 (transform.position.x + aHShift, transform.position.y + aVShift, transform.position.z); 
-				aShiftScale = new Vector3 (aScales[aID-1], aScales[aID-1], transform.localScale.z); 
-			}
+			aShiftPos = aPositions[aID]; 
+			aShiftScale = aScales[aID]; 
 			aShiftHouse = true;
 		}
 	}
@@ -85,6 +67,6 @@ public class House : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	public void setColour()
 	{
-		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses]; 
+		aRender.color = aColors [aPlayer.aHouses]; 
 	}
 }
