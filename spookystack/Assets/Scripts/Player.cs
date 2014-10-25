@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 	public GameObject aHatPrefab; 
 	public bool aChangingHouses; 
 
+	public string aHousePrefix; 
 	public Vector3 aHousePos; 
 	public Vector3 aHatPos; 
 	public float aHatInc; 
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour {
 				makeHat ();
 			}
 		}
-		else 
+		else if (aID == 2)
 		{
 			if (Input.GetKeyDown(KeyCode.LeftArrow))
 			{
@@ -89,7 +90,8 @@ public class Player : MonoBehaviour {
 		House[] hs = GameObject.FindObjectsOfType(typeof(House)) as House[];
 		foreach (House h in hs)
 		{
-			h.shiftHouse(); 
+			if (h.name.Contains(aHousePrefix))
+				h.shiftHouse(); 
 		}
 		Invoke ("makeHouse", aDelay); 
 	}
