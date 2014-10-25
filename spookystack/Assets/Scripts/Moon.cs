@@ -25,7 +25,6 @@ public class Moon : MonoBehaviour {
 			transform.position += Vector3.up * Mspeed;
 
 		} else {
-
 			Player[] ps = GameObject.FindObjectsOfType(typeof(Player)) as Player[];
 			foreach (Player p in ps)
 			{
