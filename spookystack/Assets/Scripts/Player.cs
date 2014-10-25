@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	public Vector3 aHousePos; 
 	public float aDelay; 
 
+	public House[] aHouseArr;
 
 	// Use this for initialization
 	void Start () 
@@ -59,15 +60,21 @@ public class Player : MonoBehaviour {
 	void changeHouse()
 	{
 		aChangingHouses = true; 
-		SendMessage ("shiftHouse"); 
-		StartCoroutine(makeHouse ()); 
+		House[] hs = GameObject.FindObjectsOfType(typeof(House)) as House[];
+		foreach (House h in hs)
+		{
+			h.shiftHouse(); 
+		}
 	}
 
-	IEnumerator makeHouse()
+	public void makeHouse()
 	{
-		yield return new WaitForSeconds (aDelay);
-		GameObject newHouse = Instantiate (aHousePrefab, aHousePos, Quaternion.identity) as GameObject;
+		GameObject newHouse = Instantiate (aHousePrefab) as GameObject;
 		House houseScript = newHouse.GetComponent<House>();
+		aHouseArr[2] = houseScript; 
 		houseScript.aPlayer = this; 
+		houseScript.setColour(); 
+		houseScript.gameObject.name = houseScript.aNamePrefix + 3;
+		houseScript.aShiftHouse = false; 
 	}
 }
