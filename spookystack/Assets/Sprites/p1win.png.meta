@@ -1,8 +1,12 @@
 fileFormatVersion: 2
-guid: eb396abb77b62294796a16f2bef4441d
+guid: b7b94f4d6684dcd4087bfc54f928d026
 TextureImporter:
   fileIDToRecycleName:
-    21300000: player_2_win
+<<<<<<< HEAD:spookystack/Assets/Sprites/player_1_win.png.meta
+    21300000: player_1_win
+=======
+    21300000: p1win
+>>>>>>> c24a8635973030d4e89e4fe54ba25403dd2bd1cc:spookystack/Assets/Sprites/p1win.png.meta
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
