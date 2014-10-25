@@ -83,11 +83,10 @@ public class Hat : MonoBehaviour {
 	 * - call changeName on all hats of current player 
 	 * - destroy this hat 
 	 * -------------------------------------------------------------------------------------------------------------------- */
-	void OnTriggerEnter2D (Collider2D col)
+	void OnCollisionEnter2D ()
 	{
 		if (aID == 1)
 		{
-			Destroy (col.gameObject); 
 			aID--; 
 			BroadcastMessage ("changeName");  
 			Destroy (this.gameObject); 

@@ -8,11 +8,15 @@ public class CandyLaunch : MonoBehaviour {
 	public float aSpeed;
 	public float aAccel; 
 
+	public Sprite[] aSprites; 
+
 	/* --------------------------------------------------------------------------------------------------------------------
 	 * START: 
 	 * find the target: opponent's bottom hat
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void Start () {
+		gameObject.GetComponent<SpriteRenderer> ().sprite = aSprites [Random.Range (0, aSprites.Length)]; 
+
 		aTarget = GameObject.Find (aTargetName); 
 	}
 
@@ -23,7 +27,12 @@ public class CandyLaunch : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void FixedUpdate()
 	{
-		transform.position = Vector3.Slerp (transform.position, aTarget.transform.position, aSpeed * Time.deltaTime); 
+		transform.position = Vector3.Lerp (transform.position, aTarget.transform.position, aSpeed * Time.deltaTime); 
 		aSpeed += aAccel; 
+	}
+
+	void OnCollisionEnter2D ()
+	{
+		Destroy (gameObject); 
 	}
 }

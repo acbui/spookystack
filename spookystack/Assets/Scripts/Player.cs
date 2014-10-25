@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public int aHouses; 
 	public int aID; 
 
+	public GameObject aCandyPrefab;
 	public GameObject aHousePrefab; 
 	public GameObject aHatPrefab; 
 	public bool aChangingHouses; 
@@ -47,6 +48,11 @@ public class Player : MonoBehaviour {
 				aHats++;
 				makeHat ();
 			}
+
+			if (Input.GetMouseButtonDown (2))
+			{
+				throwCandy();
+			}
 		}
 		else if (aID == 2)
 		{
@@ -61,6 +67,12 @@ public class Player : MonoBehaviour {
 				aHats++;
 				makeHat ();
 			}
+
+			if (Input.GetKeyDown(KeyCode.UpArrow))
+			{
+				//if (aCandies > 0)
+					throwCandy();
+			}
 		}
 	}
 
@@ -70,6 +82,7 @@ public class Player : MonoBehaviour {
 	void throwCandy()
 	{
 		aCandies--;
+		Instantiate (aCandyPrefab, aCandyPos, Quaternion.identity); 
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
