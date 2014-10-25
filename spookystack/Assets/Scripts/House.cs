@@ -68,7 +68,8 @@ public class House : MonoBehaviour {
 	{
 		if (aPlayer.aChangingHouses)
 		{
-			aID--;
+			if (aID >= 1)
+				aID--;
 			gameObject.name = aNamePrefix + aID; 
 			aShiftPos = aPositions[aID]; 
 			aShiftScale = aScales[aID]; 
@@ -82,6 +83,6 @@ public class House : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	public void setColour()
 	{
-		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses]; 
+		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses%3]; 
 	}
 }

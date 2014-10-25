@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
 	{
 		aHats = 0;
 		aCandies = 0; 
-		aHouses = 0; 
+		aHouses = 2; 
 		aChangingHouses = false; 
 	}
 	
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0))
 		{
 			changeHouse(); 
+			aHouses++;
 		}
 	}
 
