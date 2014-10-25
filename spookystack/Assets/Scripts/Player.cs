@@ -11,9 +11,7 @@ public class Player : MonoBehaviour {
 	public bool aChangingHouses; 
 
 	public Vector3 aHousePos; 
-	public float aDelay; 
-
-	public House[] aHouseArr;
+	public float aDelay;
 
 	// Use this for initialization
 	void Start () 
@@ -65,13 +63,13 @@ public class Player : MonoBehaviour {
 		{
 			h.shiftHouse(); 
 		}
+		Invoke ("makeHouse", aDelay); 
 	}
 
 	public void makeHouse()
 	{
 		GameObject newHouse = Instantiate (aHousePrefab) as GameObject;
 		House houseScript = newHouse.GetComponent<House>();
-		aHouseArr[2] = houseScript; 
 		houseScript.aPlayer = this; 
 		houseScript.setColour(); 
 		houseScript.gameObject.name = houseScript.aNamePrefix + 3;
