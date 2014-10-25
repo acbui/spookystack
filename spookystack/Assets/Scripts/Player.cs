@@ -125,7 +125,7 @@ public class Player : MonoBehaviour {
 	{
 		if (Random.Range (1,5) == 1)
 		{
-			audio.PlayOneShot(clips[1]); 
+			//audio.PlayOneShot(clips[1]); 
 			GameObject dealer = Instantiate (aDealerPrefab) as GameObject; 
 			HatDealer dealScript = dealer.GetComponent<HatDealer>();
 			dealScript.aPlayer = this; 
