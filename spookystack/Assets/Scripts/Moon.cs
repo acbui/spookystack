@@ -25,6 +25,7 @@ public class Moon : MonoBehaviour {
 			transform.position += Vector3.up * Mspeed;
 
 		} else {
+
 		}
 	
 	}
