@@ -1,30 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
 guid: 5ac09b8fc3ea91c4c9ecb11d68d61f7c
-=======
-<<<<<<< HEAD
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
-guid: 58f003035b2b59040b45f7ac8b8f9eac
-=======
-guid: 14db7a2dc5b68b24d9024cb5ac414216
->>>>>>> 32f5a2a30df0b4cf72be39f7302edc9cf21ac540
-<<<<<<< HEAD
-TextureImporter:
-  fileIDToRecycleName: {}
-  serializedVersion: 2
-  mipmaps:
-    mipMapMode: 0
-<<<<<<< HEAD
-    enableMipMap: 0
-=======
-    enableMipMap: 1
-=======
->>>>>>> 2d57d8906aa78f2c582ce918814a9f1446f099e7
 TextureImporter:
   fileIDToRecycleName:
     21300000: TitleScreen
@@ -32,8 +7,6 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -49,26 +22,6 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-<<<<<<< HEAD
-  textureFormat: -3
-=======
-<<<<<<< HEAD
-  textureFormat: -1
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
-  maxTextureSize: 1024
-  textureSettings:
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
-  lightmap: 0
-  compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
-  spriteMode: 0
-=======
   textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
@@ -80,26 +33,14 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-<<<<<<< HEAD
   alphaIsTransparency: 1
   textureType: 8
-=======
-<<<<<<< HEAD
-  alphaIsTransparency: 0
-  textureType: -1
-=======
-  alphaIsTransparency: 1
-  textureType: 8
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
   buildTargetSettings: []
   spriteSheet:
     sprites: []

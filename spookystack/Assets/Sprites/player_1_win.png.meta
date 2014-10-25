@@ -1,23 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: b7b94f4d6684dcd4087bfc54f928d026
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-guid: b7b94f4d6684dcd4087bfc54f928d026
-=======
-<<<<<<< HEAD
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
-guid: ba89e19d7367e62418da43f6dc4f65b0
-=======
-guid: 0041630e30a55ff479aea5ce25904782
->>>>>>> 32f5a2a30df0b4cf72be39f7302edc9cf21ac540
-<<<<<<< HEAD
-=======
->>>>>>> 2d57d8906aa78f2c582ce918814a9f1446f099e7
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
 TextureImporter:
   fileIDToRecycleName:
     21300000: player_1_win
@@ -40,15 +22,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-<<<<<<< HEAD
   textureFormat: -3
-=======
-<<<<<<< HEAD
-  textureFormat: -1
-=======
-  textureFormat: -3
->>>>>>> 5b2b7eec1007934c728bb021416843e0333b2a3e
->>>>>>> 9d4c5befa1e2bab93d294c59de82e2657f81672b
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
