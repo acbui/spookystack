@@ -6,6 +6,7 @@ public class Moon : MonoBehaviour {
 	private float Mpos;
 	private float Mspeed = 0.001f;
 	public float EndTime;
+	public GameObject camera;
 
 
 	// Use this for initialization
@@ -24,7 +25,6 @@ public class Moon : MonoBehaviour {
 			transform.position += Vector3.up * Mspeed;
 
 		} else {
-			print ("GAME IS DONE");
 		}
 	
 	}
