@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
 		if (aID == 1)
 		{
 			if (currentFrame >= coolDown){
-				if (Input.GetMouseButtonDown(0) || Input.GetKeyDown (KeyCode.A))
+				if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown (KeyCode.A)) && !(Input.GetMouseButtonDown (2) || Input.GetKeyDown (KeyCode.W)))
 				{
 					collectCandy();
 					makeDealer();
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
 			}
 
 			if (currentTime >= coolTime){
-				if (Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W))
+				if ((Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W)) && !(Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.A)))
 				{
 					if (aCandies > 0)
 						throwCandy();
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour {
 		else if (aID == 2)
 		{
 			if (currentFrame >= coolDown){
-				if (Input.GetKeyDown(KeyCode.LeftArrow))
+				if (Input.GetKeyDown(KeyCode.LeftArrow) && !Input.GetKeyDown (KeyCode.UpArrow))
 				{
 					collectCandy();
 					makeDealer();
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour {
 			}
 
 			if (currentTime >= coolTime){
-				if (Input.GetKeyDown(KeyCode.UpArrow))
+				if (Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow))
 				{
 					if (aCandies > 0)
 						throwCandy();
