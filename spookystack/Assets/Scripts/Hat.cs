@@ -25,10 +25,24 @@ public class Hat : MonoBehaviour {
 	 * - set the object name 
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void Start () {
+		if (GameObject.Find (aNamePrefix + aID))
+		{
+			Destroy (gameObject);
+		}
 		setSprite(); 
 		gameObject.name = aNamePrefix + aPlayer.aHats;
 		aShiftHat = false; 
 		transform.localScale = new Vector3 (0.3f, 0.3f, 1); 
+	}
+
+	void Update()
+	{
+		Hat[] hs = GameObject.FindObjectsOfType(typeof(Hat)) as Hat[];
+		foreach (Hat h in hs)
+		{
+			if (h.name.Contains(aNamePrefix))
+				h.changeName(); 
+		}
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
@@ -83,14 +97,17 @@ public class Hat : MonoBehaviour {
 	 * - call changeName on all hats of current player 
 	 * - destroy this hat 
 	 * -------------------------------------------------------------------------------------------------------------------- */
-	void OnTriggerEnter2D (Collider2D col)
+	void OnCollisionEnter2D (Collision2D col)
 	{
 		if (aID == 1)
 		{
-			Destroy (col.gameObject); 
-			aID--; 
-			BroadcastMessage ("changeName");  
-			Destroy (this.gameObject); 
+			if (col.gameObject.tag == "Candy")
+			{
+				aID--; 
+				aPlayer.aHats--; 
+				Destroy (this.gameObject); 
+
+			}
 		}
 	}
 }
