@@ -106,7 +106,6 @@ public class Hat : MonoBehaviour {
 				aID--; 
 				aPlayer.aHats--; 
 				Destroy (this.gameObject); 
-
 			}
 		}
 	}

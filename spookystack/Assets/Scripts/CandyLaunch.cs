@@ -38,8 +38,8 @@ public class CandyLaunch : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D ()
-	{
-		Destroy (gameObject); 
-	}
+	//void OnCollisionEnter2D ()
+	//{
+	//	Destroy (gameObject); 
+	//}
 }
