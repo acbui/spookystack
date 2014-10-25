@@ -43,6 +43,12 @@ public class Player : MonoBehaviour {
 			{
 				collectCandy();
 				makeDealer();
+
+				if (aCandies%10 == 0)
+				{
+					makeHat();
+					aHats++;
+				}
 			}
 
 			if (Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W))
