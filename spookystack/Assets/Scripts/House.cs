@@ -47,7 +47,7 @@ public class House : MonoBehaviour {
 				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 0), aSpeed * Time.deltaTime);
 			}
 
-			if (transform.position.y <= aShiftPos.y + 0.05f)
+			if (transform.position.y <= aShiftPos.y + 2)
 			{
 				if (aID == 0)
 				{
