@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public int aHouses; 
 	public int aID; 
 
+	public GameObject aDealerPrefab; 
 	public GameObject aCandyPrefab;
 	public GameObject aHousePrefab; 
 	public GameObject aHatPrefab; 
@@ -38,39 +39,29 @@ public class Player : MonoBehaviour {
 	{
 		if (aID == 1)
 		{
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown (KeyCode.A))
 			{
 				collectCandy();
+				makeDealer();
 			}
 
-			if (Input.GetMouseButtonDown(1))
+			if (Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W))
 			{
-				aHats++;
-				makeHat ();
-			}
-
-			if (Input.GetMouseButtonDown (2))
-			{
-				throwCandy();
+				if (aCandies > 0)
+					throwCandy();
 			}
 		}
 		else if (aID == 2)
 		{
 			if (Input.GetKeyDown(KeyCode.LeftArrow))
 			{
-				changeHouse(); 
-				aHouses++;
-			}
-			
-			if (Input.GetKeyDown(KeyCode.RightArrow))
-			{
-				aHats++;
-				makeHat ();
+				collectCandy();
+				makeDealer();
 			}
 
 			if (Input.GetKeyDown(KeyCode.UpArrow))
 			{
-				//if (aCandies > 0)
+				if (aCandies > 0)
 					throwCandy();
 			}
 		}
@@ -132,5 +123,15 @@ public class Player : MonoBehaviour {
 		Hat hatScript = newHat.GetComponent<Hat>();
 		hatScript.aPlayer = this; 
 		hatScript.aID = aHats; 
+	}
+
+	public void makeDealer()
+	{
+		if (Random.Range (1,5) == 1)
+		{
+			GameObject dealer = Instantiate (aDealerPrefab) as GameObject; 
+			HatDealer dealScript = dealer.GetComponent<HatDealer>();
+			dealScript.aPlayer = this; 
+		}
 	}
 }

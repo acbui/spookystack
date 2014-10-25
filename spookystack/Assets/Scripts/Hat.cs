@@ -85,7 +85,7 @@ public class Hat : MonoBehaviour {
 		{
 			aID--; 
 			gameObject.name = aNamePrefix + aID; 
-			aShiftPos = new Vector3 (transform.position.x, transform.position.y - aVShift, transform.position.z); 
+			aShiftPos = new Vector3 (transform.position.x,  aVShift*(aID-1), transform.position.z); 
 			aShiftHat = true; 
 		}
 	}
