@@ -5,7 +5,7 @@ public class House : MonoBehaviour {
 
 	public Player aPlayer; 
 	public Color[] aColors; 
-	
+
 	public string aNamePrefix; 
 	public int aID; 
 
@@ -19,14 +19,10 @@ public class House : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		setMaterial(); 
-		gameObject.name = aNamePrefix + (aPlayer.aHouses + 1);
-		aShiftHouse = false; 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
@@ -48,6 +44,7 @@ public class House : MonoBehaviour {
 				}
 				transform.position = aShiftPos;
 				transform.localScale = aShiftScale; 
+				aPlayer.makeHouse (); 
 				aShiftHouse = false; 
 			}
 		}
@@ -66,9 +63,19 @@ public class House : MonoBehaviour {
 		{
 			aID--;
 			gameObject.name = aNamePrefix + aID; 
-			aShiftPos = new Vector3 (transform.position.x - aHShift, transform.position.y - aVShift, transform.position.z); 
-			aShiftScale = new Vector3 (aScales[aPlayer.aHouses], aScales[aPlayer.aHouses], transform.localScale.z); 
-			aShiftHouse = true; 
+			if (aID == 0)
+			{
+
+				aShiftPos = new Vector3 (transform.position.x + Mathf.Sign(aHShift), transform.position.y + Mathf.Sign(aVShift), transform.position.z); 
+				aShiftScale = new Vector3 (aScales[aID]*2, aScales[aID]*2, transform.localScale.z); 
+				 
+			}
+			else 
+			{
+				aShiftPos = new Vector3 (transform.position.x + aHShift, transform.position.y + aVShift, transform.position.z); 
+				aShiftScale = new Vector3 (aScales[aID-1], aScales[aID-1], transform.localScale.z); 
+			}
+			aShiftHouse = true;
 		}
 	}
 
@@ -76,7 +83,7 @@ public class House : MonoBehaviour {
 	 * SET MATERIAL:
 	 * sets the house's material/colour depending on the house the player is at
 	 * -------------------------------------------------------------------------------------------------------------------- */
-	void setMaterial()
+	public void setColour()
 	{
 		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses]; 
 	}
