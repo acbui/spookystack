@@ -18,6 +18,9 @@ public class Player : MonoBehaviour {
 	public float aHatInc; 
 	public float aDelay;
 
+	public int minCandies;
+	public int maxCandies; 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -34,8 +37,7 @@ public class Player : MonoBehaviour {
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
-				changeHouse(); 
-				aHouses++;
+				collectCandy();
 			}
 
 			if (Input.GetMouseButtonDown(1))
@@ -69,11 +71,14 @@ public class Player : MonoBehaviour {
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
-	 * 
+	 * COLLECT CANDY:
+	 * - 
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void collectCandy()
 	{
-
+		aCandies += Random.Range (minCandies, maxCandies+1); 
+		changeHouse(); 
+		aHouses++;
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
