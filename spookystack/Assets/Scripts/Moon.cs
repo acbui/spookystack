@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Moon : MonoBehaviour {
 
-	public float Mpos;
-	public float Mspeed;
+	private float Mpos;
+	private float Mspeed = 0.001f;
 	public float EndTime;
 
 

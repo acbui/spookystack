@@ -1,14 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 89a6238f49a982b4a917e5c976b69267
-TextureImporter:
-  fileIDToRecycleName: {}
-  serializedVersion: 2
-  mipmaps:
-    mipMapMode: 0
-    enableMipMap: 1
-=======
-guid: a74c77961e1be344f9b9b9fec456d69a
 TextureImporter:
   fileIDToRecycleName:
     21300000: mummy
@@ -16,7 +7,6 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
->>>>>>> 0d558ce78f2d4407c7ee38bd5dc3044ab7abd73a
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -32,19 +22,6 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-<<<<<<< HEAD
-  textureFormat: -1
-  maxTextureSize: 1024
-  textureSettings:
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 0
-=======
   textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
@@ -56,20 +33,14 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
->>>>>>> 0d558ce78f2d4407c7ee38bd5dc3044ab7abd73a
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-<<<<<<< HEAD
-  alphaIsTransparency: 0
-  textureType: -1
-=======
   alphaIsTransparency: 1
   textureType: 8
->>>>>>> 0d558ce78f2d4407c7ee38bd5dc3044ab7abd73a
   buildTargetSettings: []
   spriteSheet:
     sprites: []
