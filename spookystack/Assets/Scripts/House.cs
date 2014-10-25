@@ -38,7 +38,22 @@ public class House : MonoBehaviour {
 		{
 			transform.position = Vector3.Slerp (transform.position, aShiftPos, Time.deltaTime * aSpeed);
 			transform.localScale = Vector3.Slerp (transform.localScale, aShiftScale, Time.deltaTime * aSpeed); 
+			if (aID != 0)
+			{
+				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 255), aSpeed * Time.deltaTime);
+			}
+			else 
+			{
+				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 0), aSpeed * Time.deltaTime);
+			}
 
+			if (transform.position.y <= aShiftPos.y + 0.05f)
+			{
+				if (aID == 0)
+				{
+					Destroy (this.gameObject);
+				}
+			}
 		}
 	}
 
@@ -67,6 +82,6 @@ public class House : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	public void setColour()
 	{
-		aRender.color = aColors [aPlayer.aHouses]; 
+		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses]; 
 	}
 }
