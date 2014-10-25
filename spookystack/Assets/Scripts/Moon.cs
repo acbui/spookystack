@@ -25,16 +25,12 @@ public class Moon : MonoBehaviour {
 			transform.position += Vector3.up * Mspeed;
 
 		} else {
-
-<<<<<<< HEAD
-=======
 			Player[] ps = GameObject.FindObjectsOfType(typeof(Player)) as Player[];
 			foreach (Player p in ps)
 			{
 				p.enabled = false; 
 			}
 			cam.enabled = true; 
->>>>>>> 32f5a2a30df0b4cf72be39f7302edc9cf21ac540
 		}
 	
 	}
