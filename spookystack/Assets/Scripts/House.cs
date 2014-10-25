@@ -4,15 +4,17 @@ using System.Collections;
 public class House : MonoBehaviour {
 
 	public Player aPlayer; 
-	public Material[] aMaterials; 
+	public Color[] aColors; 
 	
 	public string aNamePrefix; 
 	public int aID; 
 
+	public float[] aScales; 
 	public float aVShift;
 	public float aHShift; 
 	public float aSpeed; 
 	public Vector3 aShiftPos;
+	public Vector3 aShiftScale; 
 	public bool aShiftHouse; 
 
 	// Use this for initialization
@@ -36,14 +38,16 @@ public class House : MonoBehaviour {
 		if (aShiftHouse)
 		{
 			transform.position = Vector3.Lerp (transform.position, aShiftPos, Time.deltaTime * aSpeed);
+			transform.localScale = Vector3.Lerp (transform.localScale, aShiftScale, Time.deltaTime * aSpeed); 
 			
-			if (transform.position.y <= aShiftPos.y + 0.05f )
+			if (transform.position.y <= aShiftPos.y + 0.05f)
 			{
 				if (aID == 0)
 				{
-
+					Destroy (this.gameObject); 
 				}
-				transform.position = new Vector3 (transform.position.x, aShiftPos.y, transform.position.z);
+				transform.position = aShiftPos;
+				transform.localScale = aShiftScale; 
 				aShiftHouse = false; 
 			}
 		}
@@ -52,26 +56,17 @@ public class House : MonoBehaviour {
 	/* --------------------------------------------------------------------------------------------------------------------
 	 * SHIFT HOUSE:
 	 * when the player finishes with bottom house, shift all the houses  
-	 * - change this hat's id
-	 * - change this hat's name 
+	 * - change this house's id
+	 * - change this house's name 
 	 * - trigger shift of the hat  
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	public void shiftHouse()
 	{
-		if (aID == 1)
-		{
-			aID--; 
-			gameObject.name = aNamePrefix + aID; 
-			aShiftPos = new Vector3 (transform.position.x, transform.position.y - aVShift, transform.position.z); 
-			aShiftHouse = true; 
-		}
-		else 
-		{
-			aID--;
-			gameObject.name = aNamePrefix + aID; 
-			aShiftPos = new Vector3 (transform.position.x, transform.position.y - aVShift, transform.position.z); 
-			aShiftHouse = true; 
-		}
+		aID--;
+		gameObject.name = aNamePrefix + aID; 
+		aShiftPos = new Vector3 (transform.position.x - aHShift, transform.position.y - aVShift, transform.position.z); 
+		aShiftScale = new Vector3 (aScales[aPlayer.aHouses], aScales[aPlayer.aHouses], transform.localScale.z); 
+		aShiftHouse = true; 
 	}
 
 	/* --------------------------------------------------------------------------------------------------------------------
@@ -80,6 +75,6 @@ public class House : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	void setMaterial()
 	{
-		gameObject.renderer.material = aMaterials [aPlayer.aHouses]; 
+		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses]; 
 	}
 }
