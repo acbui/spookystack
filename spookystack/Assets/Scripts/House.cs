@@ -5,6 +5,7 @@ public class House : MonoBehaviour {
 
 	public Player aPlayer; 
 	public Color[] aColors; 
+	public Vector3[] aPositions; 
 
 	public string aNamePrefix; 
 	public int aID; 
@@ -44,7 +45,6 @@ public class House : MonoBehaviour {
 				}
 				transform.position = aShiftPos;
 				transform.localScale = aShiftScale; 
-				aPlayer.makeHouse (); 
 				aShiftHouse = false; 
 			}
 		}
@@ -66,7 +66,7 @@ public class House : MonoBehaviour {
 			if (aID == 0)
 			{
 
-				aShiftPos = new Vector3 (transform.position.x + Mathf.Sign(aHShift), transform.position.y + Mathf.Sign(aVShift), transform.position.z); 
+				aShiftPos = aPositions[aID-1]; 
 				aShiftScale = new Vector3 (aScales[aID]*2, aScales[aID]*2, transform.localScale.z); 
 				 
 			}
