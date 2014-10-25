@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: 6ac2ed8a22077614f9b4f0f1d4b1bb3c
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: house_flipped
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
