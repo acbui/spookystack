@@ -31,8 +31,8 @@ public class CandyLaunch : MonoBehaviour {
 		aSpeed += aAccel; 
 	}
 
-	void OnTriggerEnter ()
+	void OnCollisionEnter2D ()
 	{
-		Destroy (this.gameObject); 
+		Destroy (gameObject); 
 	}
 }

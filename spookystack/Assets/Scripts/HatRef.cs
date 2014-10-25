@@ -3,9 +3,14 @@ using System.Collections;
 
 public class HatRef : MonoBehaviour {
 
-	void OnTriggerEnter2D (Collider2D col)
+	private Vector3 initPos; 
+	void Start()
 	{
-		print ("CANDY");
-		Destroy (col.gameObject);
+		initPos = transform.position;
+	}
+
+	void Update()
+	{
+		transform.position = initPos; 
 	}
 }

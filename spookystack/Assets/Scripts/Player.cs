@@ -70,7 +70,7 @@ public class Player : MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.UpArrow))
 			{
-				if (aCandies > 0)
+				//if (aCandies > 0)
 					throwCandy();
 			}
 		}
