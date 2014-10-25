@@ -7,6 +7,7 @@ public class Moon : MonoBehaviour {
 	private float Mspeed = 0.001f;
 	public float EndTime;
 
+	public WinCam cam; 
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,13 @@ public class Moon : MonoBehaviour {
 			transform.position += Vector3.up * Mspeed;
 
 		} else {
-			print ("GAME IS DONE");
+
+			Player[] ps = GameObject.FindObjectsOfType(typeof(Player)) as Player[];
+			foreach (Player p in ps)
+			{
+				p.enabled = false; 
+			}
+			cam.enabled = true; 
 		}
 	
 	}
