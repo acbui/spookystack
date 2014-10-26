@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public int aHouses; 
 	public int aID; 
 
+	public WinCam  aCam;
 	public GameObject aDealerPrefab; 
 	public GameObject aCandyPrefab;
 	public GameObject aHousePrefab; 
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		aCam.enabled = false; 
 		aHats = 0;
 		aCandies = 0; 
 		aHouses = 2; 
@@ -152,5 +154,14 @@ public class Player : MonoBehaviour {
 			HatDealer dealScript = dealer.GetComponent<HatDealer>();
 			dealScript.aPlayer = this; 
 		}
+	}
+
+	public void resetPlayer()
+	{
+		aHats = 0;
+		aCandies = 0; 
+		currentFrame = 10;
+		currentTime = coolTime; 
+		aChangingHouses = false; 
 	}
 }

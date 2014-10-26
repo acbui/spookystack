@@ -6,14 +6,16 @@ public class Moon : MonoBehaviour {
 	private float Mpos;
 	private float Mspeed = 0.001f;
 	public float EndTime;
+	public Vector3 initPos; 
 
 	public WinCam cam; 
+	public bool tieLerp; 
+	public float aSpeed; 
 
 	// Use this for initialization
 	void Start () {
-
-
-	
+		initPos = transform.position; 
+		tieLerp = false; 	
 	}
 	
 	// Update is called once per frame
@@ -32,6 +34,25 @@ public class Moon : MonoBehaviour {
 			}
 			cam.enabled = true; 
 		}
-	
 	}
+
+	void FixedUpdate()
+	{
+		if (tieLerp)
+		{
+			transform.position = Vector3.Lerp (transform.position, new Vector3 (transform.position.x, cam.winY, transform.position.z), aSpeed*Time.deltaTime); 
+
+			if (transform.position.y >= cam.winY - 0.05f)
+			{
+				cam.moonLerped = true; 
+			}
+		}
+	}
+
+	public void resetMoon()
+	{
+		transform.position = initPos; 
+		tieLerp = false; 
+	}
+
 }
