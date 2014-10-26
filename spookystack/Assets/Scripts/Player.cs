@@ -7,8 +7,7 @@ public class Player : MonoBehaviour {
 	public int aCandies;
 	public int aHouses; 
 	public int aID; 
-
-	public WinCam  aCam;
+	
 	public GameObject aDealerPrefab; 
 	public GameObject aCandyPrefab;
 	public GameObject aHousePrefab; 
@@ -31,18 +30,17 @@ public class Player : MonoBehaviour {
 	public float currentFrame; 
 	public float coolDown; 
 
-	public float currentTime;
-	public float coolTime; 
+	public float candyFrame;
+	public float coolCandy; 
 
 	// Use this for initialization
 	void Start () 
 	{
-		aCam.enabled = false; 
 		aHats = 0;
 		aCandies = 0; 
 		aHouses = 2; 
 		currentFrame = 10;
-		currentTime = coolTime; 
+		candyFrame = 0; 
 		aChangingHouses = false; 
 	}
 	
@@ -50,7 +48,7 @@ public class Player : MonoBehaviour {
 	void Update () 
 	{
 		currentFrame++; 
-		currentTime = Time.time; 
+		candyFrame++; 
 		if (aID == 1)
 		{
 			if (currentFrame >= coolDown){
@@ -62,12 +60,12 @@ public class Player : MonoBehaviour {
 				} 
 			}
 
-			if (currentTime >= coolTime){
+			if (candyFrame >= coolCandy){
 				if ((Input.GetMouseButtonDown(2) || Input.GetKeyDown (KeyCode.W)) && !(Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.A)))
 				{
 					if (aCandies > 0)
 						throwCandy();
-					coolTime += Time.time;
+					candyFrame = 0;
 				}
 			}
 		}
@@ -82,12 +80,12 @@ public class Player : MonoBehaviour {
 				}
 			}
 
-			if (currentTime >= coolTime){
+			if (candyFrame >= coolCandy){
 				if (Input.GetKeyDown(KeyCode.UpArrow) && !Input.GetKeyDown(KeyCode.LeftArrow))
 				{
 					if (aCandies > 0)
 						throwCandy();
-					coolTime += Time.time;
+					candyFrame = 0;
 				}
 			}
 		}
@@ -161,7 +159,7 @@ public class Player : MonoBehaviour {
 		aHats = 0;
 		aCandies = 0; 
 		currentFrame = 10;
-		currentTime = coolTime; 
+		candyFrame = coolCandy; 
 		aChangingHouses = false; 
 	}
 }

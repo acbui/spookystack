@@ -57,8 +57,8 @@ public class WinCam : MonoBehaviour {
 	void Update()
 	{
 		if (transform.position.y >= winY - 0.05f) {
-			//GameManager.ins.resetGame(); 
-			moon.tieLerp = true; 
+			GameManager.ins.endGame(); 
+			/*moon.tieLerp = true; 
 			if (winID == 0)
 			{
 				if (moonLerped)
@@ -84,7 +84,7 @@ public class WinCam : MonoBehaviour {
 						Application.LoadLevel ("p2win");
 					}
 				}
-			}
+			}*/
 		}
 	}
 

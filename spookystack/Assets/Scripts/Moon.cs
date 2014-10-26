@@ -6,6 +6,7 @@ public class Moon : MonoBehaviour {
 	private float Mpos;
 	private float Mspeed = 0.001f;
 	public float EndTime;
+	public float duration; 
 	public Vector3 initPos; 
 
 	public WinCam cam; 
@@ -14,6 +15,7 @@ public class Moon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		EndTime = Time.time + duration; 
 		initPos = transform.position; 
 		tieLerp = false; 	
 	}
