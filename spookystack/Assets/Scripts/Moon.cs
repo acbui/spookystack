@@ -13,8 +13,12 @@ public class Moon : MonoBehaviour {
 	public bool tieLerp; 
 	public float aSpeed; 
 
+	public AudioClip[] clips;
+	private AudioClip clip; 
+
 	// Use this for initialization
 	void Start () {
+		clip = null; 
 		EndTime = Time.time + duration; 
 		initPos = transform.position; 
 		tieLerp = false; 	
@@ -46,7 +50,14 @@ public class Moon : MonoBehaviour {
 
 			if (transform.position.y >= cam.winY - 0.05f)
 			{
-				cam.moonLerped = true; 
+				if (clip == null)
+				{
+					clip = clips[Random.Range(0, clips.Length)];
+					audio.clip = clip;
+					audio.Play();
+					StartCoroutine(zoomMoon());
+					StartCoroutine(endMoon());
+				}
 			}
 		}
 	}
@@ -57,4 +68,15 @@ public class Moon : MonoBehaviour {
 		tieLerp = false; 
 	}
 
+	IEnumerator zoomMoon ()
+	{
+		yield return new WaitForSeconds (clip.length/2);
+		cam.camera.orthographicSize = 1; 
+	}
+
+	IEnumerator endMoon()
+	{ 
+		yield return new WaitForSeconds (clip.length);
+		cam.moonLerped = true; 
+	}
 }

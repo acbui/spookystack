@@ -12,7 +12,7 @@ public class HatDealer : MonoBehaviour {
 
 	public bool fadingOut; 
 	public SpriteRenderer aRender;
-	public float aSpeed; 
+	public float aSpeed;  
 
 	// Use this for initialization
 	void Start () {
