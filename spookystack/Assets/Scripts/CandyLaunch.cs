@@ -33,7 +33,7 @@ public class CandyLaunch : MonoBehaviour {
 		transform.position = Vector3.Lerp (transform.position, aTarget, aSpeed * Time.deltaTime); 
 		aSpeed += aAccel; 
 
-		if (Mathf.Abs(transform.position.x - aTarget.x) <= 0.05f)
+		if (GameObject.Find(aTargetName) == null && Mathf.Abs(transform.position.x - aTarget.x) <= 0.05f)
 		{
 			audio.PlayOneShot(clip);
 			Destroy (gameObject);

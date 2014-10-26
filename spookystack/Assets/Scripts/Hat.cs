@@ -103,6 +103,7 @@ public class Hat : MonoBehaviour {
 		{
 			if (col.gameObject.tag == "Candy")
 			{
+				Destroy (col.gameObject); 
 				aID--; 
 				aPlayer.aHats--; 
 				Destroy (this.gameObject); 
