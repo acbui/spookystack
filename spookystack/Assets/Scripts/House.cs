@@ -38,18 +38,18 @@ public class House : MonoBehaviour {
 		{
 			transform.position = Vector3.Slerp (transform.position, aShiftPos, Time.deltaTime * aSpeed);
 			transform.localScale = Vector3.Slerp (transform.localScale, aShiftScale, Time.deltaTime * aSpeed); 
-			if (aID != 0)
+			if (aID == 0)
 			{
-				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 255), aSpeed * Time.deltaTime);
+				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 0), aSpeed*3 * Time.deltaTime);
 			}
 			else 
 			{
-				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 0), aSpeed * Time.deltaTime);
+				aRender.color = Color.Lerp (aRender.color, new Color (aRender.color.r, aRender.color.g, aRender.color.b, 255), aSpeed*2 * Time.deltaTime);
 			}
 
 			if (transform.position.y <= aShiftPos.y + 2)
 			{
-				if (aID == 0)
+				if (aID == 0 && aRender.color.a <= 0.5f)
 				{
 					Destroy (this.gameObject);
 				}
@@ -68,6 +68,10 @@ public class House : MonoBehaviour {
 	{
 		if (aPlayer.aChangingHouses)
 		{
+			if (gameObject.name.Equals (aNamePrefix + 1) && GameObject.Find (aNamePrefix + 0) != null)
+			{
+				Destroy (GameObject.Find (aNamePrefix + 0));
+			}
 			if (aID >= 1)
 				aID--;
 			gameObject.name = aNamePrefix + aID; 
@@ -83,6 +87,6 @@ public class House : MonoBehaviour {
 	 * -------------------------------------------------------------------------------------------------------------------- */
 	public void setColour()
 	{
-		gameObject.GetComponent<SpriteRenderer>().color = aColors [aPlayer.aHouses%3]; 
+		gameObject.GetComponent<SpriteRenderer>().color = new Color (aColors [aPlayer.aHouses%3].r, aColors [aPlayer.aHouses%3].g, aColors [aPlayer.aHouses%3].b, 200); 
 	}
 }
